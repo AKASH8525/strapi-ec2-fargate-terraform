@@ -54,10 +54,13 @@ resource "aws_ecs_task_definition" "this" {
         { name = "DATABASE_USERNAME", value = var.db_username },
         { name = "DATABASE_PASSWORD", value = var.db_password },
 
-        { name = "APP_KEYS", value = "myappkey1,myappkey2,myappkey3,myappkey4" },
-        { name = "JWT_SECRET", value = "myjwtsecret123" },
-        { name = "ADMIN_JWT_SECRET", value = "myadminjwtsecret123" },
-        { name = "API_TOKEN_SALT", value = "myapitokensalt123" }
+        { name = "DATABASE_SSL", value = "true" },
+        { name = "DATABASE_SSL_REJECT_UNAUTHORIZED", value = "false" },
+
+        { name = "APP_KEYS", value = "key1,key2,key3,key4" },
+        { name = "JWT_SECRET", value = "jwtsecret123" },
+        { name = "ADMIN_JWT_SECRET", value = "adminsecret123" },
+        { name = "API_TOKEN_SALT", value = "salt123" }
       ]
 
       logConfiguration = {

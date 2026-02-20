@@ -47,13 +47,17 @@ resource "aws_ecs_task_definition" "this" {
       ]
 
       environment = [
-        { name = "HOST", value = "0.0.0.0" },
         { name = "DATABASE_CLIENT", value = "postgres" },
         { name = "DATABASE_HOST", value = var.db_endpoint },
         { name = "DATABASE_PORT", value = "5432" },
         { name = "DATABASE_NAME", value = var.db_name },
         { name = "DATABASE_USERNAME", value = var.db_username },
-        { name = "DATABASE_PASSWORD", value = var.db_password }
+        { name = "DATABASE_PASSWORD", value = var.db_password },
+
+        { name = "APP_KEYS", value = "myappkey1,myappkey2,myappkey3,myappkey4" },
+        { name = "JWT_SECRET", value = "myjwtsecret123" },
+        { name = "ADMIN_JWT_SECRET", value = "myadminjwtsecret123" },
+        { name = "API_TOKEN_SALT", value = "myapitokensalt123" }
       ]
 
       logConfiguration = {

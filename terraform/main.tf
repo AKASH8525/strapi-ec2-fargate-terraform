@@ -92,7 +92,7 @@ module "ecs" {
   target_group_arn = module.alb.target_group_arn
 
   # ECR image (latest tag from CI/CD)
-  image_uri = "${module.ecr.repository_url}:latest"
+  image_uri = var.image_uri
 
   # Database
   db_endpoint = module.rds.db_endpoint
